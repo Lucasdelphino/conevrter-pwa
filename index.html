@@ -1,8 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="./manifest.webmanifest">
+    <meta charset="UTF-8" />
+    <meta content='yes' name='apple-mobile-web-app-capable' />
+    <meta content='yes' name='mobile-web-app-capable' />
+    <meta name="apple-mobile-web-app-status-bar" content="#aa7700">
+    <meta name="theme-color" content="black">
+    <link rel="apple-touch-icon" href="assets/logos/icon-192x192-apple.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="style.css">
     <title>LIL PEEP</title>
 </head>
@@ -18,9 +24,9 @@
     </div>
     <div class="principal">
         <ul>
-            <li>Nome: Gustav Elijah Åhr</li>
-            <li>nascimento: Allentown, 1 de novembro de 1996</li>
-            <li>falecimento: Tucson, 15 de novembro de 2017</li>
+            <li><strong>Nome:</strong> Gustav Elijah Åhr</li>
+            <li><strong>nascimento:</strong> Allentown, 1 de novembro de 1996</li>
+            <li><strong>falecimento:</strong> Tucson, 15 de novembro de 2017</li>
         </ul>
     </div>
     <hr>
@@ -44,10 +50,29 @@
 
     <footer>
     <div class="rodape">
-        <p>Site feito por Lucas</p>
-        <p>Lil Peep Oficial</p>
+        <p><br>Site feito por Lucas<br>Lil Peep oficial<br>CryBaby<br><br></p>
+
         
     </div>
 </footer>
 </body>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function (event) {
+            if ('serviceWorker' in navigator) {
+                console.log('has serviceworker');
+                window.addEventListener('load', () => {
+                    navigator.serviceWorker.register('serviceWorker.js')
+                        .then((registration) => {
+                            console.log('Service worker registered.', registration);
+                        });
+                });
+            }
+            else {
+                console.log("Your browser not supports serviceWorkers");
+            }
+        });
+    
+    </script>
+
 </html>
